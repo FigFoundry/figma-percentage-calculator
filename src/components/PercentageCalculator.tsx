@@ -21,6 +21,11 @@ const PercentageCalculator = () => {
   const [findBaseResult, setFindBaseResult] = useState<number | null>(null);
   const [findBaseValues, setFindBaseValues] = useState<{ x: number | null; y: number | null }>({ x: null, y: null });
 
+  // Helper function to check if inputs are valid
+  const areInputsValid = (input1: number | null, input2: number | null): boolean => {
+    return input1 !== null && input2 !== null;
+  };
+
   const calculateFindPercentage = () => {
     if (findPercentageInput1 !== null && findPercentageInput2 !== null) {
       const result = (findPercentageInput1 / 100) * findPercentageInput2;
@@ -91,7 +96,12 @@ const PercentageCalculator = () => {
                 value={findPercentageInput2 ?? ''}
                 onChange={(e) => setFindPercentageInput2(e.target.value ? parseFloat(e.target.value) : null)}
               />
-              <button onClick={calculateFindPercentage}>Calc</button>
+              <button
+                onClick={calculateFindPercentage}
+                disabled={!areInputsValid(findPercentageInput1, findPercentageInput2)}
+              >
+                Calculate
+              </button>
             </div>
             <div className="result">
               {findPercentageResult !== null && (
@@ -126,7 +136,12 @@ const PercentageCalculator = () => {
                 <span>%</span>
               </div>
               <span>of</span>
-              <button onClick={calculateFindRate}>Calc</button>
+              <button
+                onClick={calculateFindRate}
+                disabled={!areInputsValid(findRateInput1, findRateInput2)}
+              >
+                Calculate
+              </button>
             </div>
             <div className="result">
               {findRateResult !== null && (
@@ -161,7 +176,12 @@ const PercentageCalculator = () => {
                 <span>%</span>
               </div>
               <span>of what</span>
-              <button onClick={calculateFindBase}>Calc</button>
+              <button
+                onClick={calculateFindBase}
+                disabled={!areInputsValid(findBaseInput1, findBaseInput2)}
+              >
+                Calculate
+              </button>
             </div>
             <div className="result">
               {findBaseResult !== null && (
