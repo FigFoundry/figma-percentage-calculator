@@ -53,19 +53,19 @@ const PercentageCalculator = () => {
           className={activeTab === 'A' ? 'active' : ''}
           onClick={() => setActiveTab('A')}
         >
-          Find Percentage
+          Percentage
         </button>
         <button
           className={activeTab === 'B' ? 'active' : ''}
           onClick={() => setActiveTab('B')}
         >
-          Find Rate
+          Rate
         </button>
         <button
           className={activeTab === 'C' ? 'active' : ''}
           onClick={() => setActiveTab('C')}
         >
-          Find Base
+          Base
         </button>
       </div>
 
@@ -91,7 +91,7 @@ const PercentageCalculator = () => {
                 value={findPercentageInput2 ?? ''}
                 onChange={(e) => setFindPercentageInput2(e.target.value ? parseFloat(e.target.value) : null)}
               />
-              <button onClick={calculateFindPercentage}>Calc</button>
+              <button onClick={calculateFindPercentage}>Calculate</button>
             </div>
             <div className="result">
               {findPercentageResult !== null && (
@@ -126,7 +126,7 @@ const PercentageCalculator = () => {
                 <span>%</span>
               </div>
               <span>of</span>
-              <button onClick={calculateFindRate}>Calc</button>
+              <button onClick={calculateFindRate}>Calculate</button>
             </div>
             <div className="result">
               {findRateResult !== null && (
@@ -161,7 +161,7 @@ const PercentageCalculator = () => {
                 <span>%</span>
               </div>
               <span>of what</span>
-              <button onClick={calculateFindBase}>Calc</button>
+              <button onClick={calculateFindBase}>Calculate</button>
             </div>
             <div className="result">
               {findBaseResult !== null && (
