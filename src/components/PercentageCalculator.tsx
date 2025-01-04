@@ -3,51 +3,61 @@ import React, { useState } from 'react';
 const PercentageCalculator = () => {
   const [activeTab, setActiveTab] = useState<'A' | 'B' | 'C'>('A');
 
-  // State for "Find Percentage"
-  const [findPercentageInput1, setFindPercentageInput1] = useState<number | null>(null);
-  const [findPercentageInput2, setFindPercentageInput2] = useState<number | null>(null);
-  const [findPercentageResult, setFindPercentageResult] = useState<number | null>(null);
-  const [findPercentageValues, setFindPercentageValues] = useState<{ x: number | null; y: number | null }>({ x: null, y: null });
+  // State for "Percentage"
+  const [percentageInput1, setPercentageInput1] = useState<number | null>(null);
+  const [percentageInput2, setPercentageInput2] = useState<number | null>(null);
+  const [percentageResult, setPercentageResult] = useState<number | null>(null);
 
-  // State for "Find Rate"
-  const [findRateInput1, setFindRateInput1] = useState<number | null>(null);
-  const [findRateInput2, setFindRateInput2] = useState<number | null>(null);
-  const [findRateResult, setFindRateResult] = useState<number | null>(null);
-  const [findRateValues, setFindRateValues] = useState<{ x: number | null; y: number | null }>({ x: null, y: null });
+  // State for "Rate"
+  const [rateInput1, setRateInput1] = useState<number | null>(null);
+  const [rateInput2, setRateInput2] = useState<number | null>(null);
+  const [rateResult, setRateResult] = useState<number | null>(null);
 
-  // State for "Find Base"
-  const [findBaseInput1, setFindBaseInput1] = useState<number | null>(null);
-  const [findBaseInput2, setFindBaseInput2] = useState<number | null>(null);
-  const [findBaseResult, setFindBaseResult] = useState<number | null>(null);
-  const [findBaseValues, setFindBaseValues] = useState<{ x: number | null; y: number | null }>({ x: null, y: null });
+  // State for "Base"
+  const [baseInput1, setBaseInput1] = useState<number | null>(null);
+  const [baseInput2, setBaseInput2] = useState<number | null>(null);
+  const [baseResult, setBaseResult] = useState<number | null>(null);
 
   // Helper function to check if inputs are valid
   const areInputsValid = (input1: number | null, input2: number | null): boolean => {
     return input1 !== null && input2 !== null;
   };
 
-  const calculateFindPercentage = () => {
-    if (findPercentageInput1 !== null && findPercentageInput2 !== null) {
-      const result = (findPercentageInput1 / 100) * findPercentageInput2;
-      setFindPercentageResult(result);
-      setFindPercentageValues({ x: findPercentageInput1, y: findPercentageInput2 });
+  // Calculate Percentage
+  const calculatePercentage = () => {
+    if (percentageInput1 !== null && percentageInput2 !== null) {
+      const result = (percentageInput1 / 100) * percentageInput2;
+      setPercentageResult(result);
     }
   };
 
-  const calculateFindRate = () => {
-    if (findRateInput1 !== null && findRateInput2 !== null) {
-      const result = (findRateInput1 / findRateInput2) * 100;
-      setFindRateResult(result);
-      setFindRateValues({ x: findRateInput1, y: findRateInput2 });
+  // Calculate Rate
+  const calculateRate = () => {
+    if (rateInput1 !== null && rateInput2 !== null) {
+      const result = (rateInput1 / rateInput2) * 100;
+      setRateResult(result);
     }
   };
 
-  const calculateFindBase = () => {
-    if (findBaseInput1 !== null && findBaseInput2 !== null) {
-      const result = (findBaseInput1 / findBaseInput2) * 100;
-      setFindBaseResult(result);
-      setFindBaseValues({ x: findBaseInput1, y: findBaseInput2 });
+  // Calculate Base
+  const calculateBase = () => {
+    if (baseInput1 !== null && baseInput2 !== null) {
+      const result = (baseInput1 / baseInput2) * 100;
+      setBaseResult(result);
     }
+  };
+
+  // Clear inputs and results
+  const clearInputs = () => {
+    setPercentageInput1(null);
+    setPercentageInput2(null);
+    setPercentageResult(null);
+    setRateInput1(null);
+    setRateInput2(null);
+    setRateResult(null);
+    setBaseInput1(null);
+    setBaseInput2(null);
+    setBaseResult(null);
   };
 
   return (
@@ -83,34 +93,35 @@ const PercentageCalculator = () => {
               <div className="input-with-suffix">
                 <input
                   type="number"
-                  placeholder="32"
-                  value={findPercentageInput1 ?? ''}
-                  onChange={(e) => setFindPercentageInput1(e.target.value ? parseFloat(e.target.value) : null)}
+                  value={percentageInput1 ?? ''}
+                  onChange={(e) => setPercentageInput1(e.target.value ? parseFloat(e.target.value) : null)}
                 />
                 <span>%</span>
               </div>
               <span>of</span>
               <input
                 type="number"
-                placeholder="52"
-                value={findPercentageInput2 ?? ''}
-                onChange={(e) => setFindPercentageInput2(e.target.value ? parseFloat(e.target.value) : null)}
+                value={percentageInput2 ?? ''}
+                onChange={(e) => setPercentageInput2(e.target.value ? parseFloat(e.target.value) : null)}
               />
               <button
-                onClick={calculateFindPercentage}
-                disabled={!areInputsValid(findPercentageInput1, findPercentageInput2)}
+                onClick={calculatePercentage}
+                disabled={!areInputsValid(percentageInput1, percentageInput2)}
               >
-                Calculate
+                Calc
               </button>
             </div>
             <div className="result">
-              {findPercentageResult !== null && (
-                <>
-                  <div>Result: {findPercentageResult.toFixed(2)}</div>
-                  <div>
-                    {findPercentageResult.toFixed(2)} is {findPercentageValues.x ?? 0}% of {findPercentageValues.y ?? 0}.
-                  </div>
-                </>
+              <div>Result: {(percentageResult ?? 0).toFixed(2)}</div>
+              {percentageResult !== null && (
+                <div>
+                  {percentageResult.toFixed(2)} is {percentageInput1 ?? 0}% of {percentageInput2 ?? 0}.
+                </div>
+              )}
+              {percentageResult !== null && (
+                <button className="clear-button" onClick={clearInputs}>
+                  Clear
+                </button>
               )}
             </div>
           </div>
@@ -121,36 +132,33 @@ const PercentageCalculator = () => {
             <div className="input-group">
               <input
                 type="number"
-                placeholder="32"
-                value={findRateInput1 ?? ''}
-                onChange={(e) => setFindRateInput1(e.target.value ? parseFloat(e.target.value) : null)}
+                value={rateInput1 ?? ''}
+                onChange={(e) => setRateInput1(e.target.value ? parseFloat(e.target.value) : null)}
               />
-              <span>is what</span>
-              <div className="input-with-suffix">
-                <input
-                  type="number"
-                  placeholder="52"
-                  value={findRateInput2 ?? ''}
-                  onChange={(e) => setFindRateInput2(e.target.value ? parseFloat(e.target.value) : null)}
-                />
-                <span>%</span>
-              </div>
-              <span>of</span>
+              <span>is what % of</span>
+              <input
+                type="number"
+                value={rateInput2 ?? ''}
+                onChange={(e) => setRateInput2(e.target.value ? parseFloat(e.target.value) : null)}
+              />
               <button
-                onClick={calculateFindRate}
-                disabled={!areInputsValid(findRateInput1, findRateInput2)}
+                onClick={calculateRate}
+                disabled={!areInputsValid(rateInput1, rateInput2)}
               >
-                Calculate
+                Calc
               </button>
             </div>
             <div className="result">
-              {findRateResult !== null && (
-                <>
-                  <div>Result: {findRateResult.toFixed(2)}%</div>
-                  <div>
-                    {findRateValues.x ?? 0} is {findRateResult.toFixed(2)}% of {findRateValues.y ?? 0}.
-                  </div>
-                </>
+              <div>Result: {(rateResult ?? 0).toFixed(2)}%</div>
+              {rateResult !== null && (
+                <div>
+                  {rateInput1 ?? 0} is {(rateResult ?? 0).toFixed(2)}% of {rateInput2 ?? 0}.
+                </div>
+              )}
+              {rateResult !== null && (
+                <button className="clear-button" onClick={clearInputs}>
+                  Clear
+                </button>
               )}
             </div>
           </div>
@@ -161,36 +169,37 @@ const PercentageCalculator = () => {
             <div className="input-group">
               <input
                 type="number"
-                placeholder="32"
-                value={findBaseInput1 ?? ''}
-                onChange={(e) => setFindBaseInput1(e.target.value ? parseFloat(e.target.value) : null)}
+                value={baseInput1 ?? ''}
+                onChange={(e) => setBaseInput1(e.target.value ? parseFloat(e.target.value) : null)}
               />
               <span>is</span>
               <div className="input-with-suffix">
                 <input
                   type="number"
-                  placeholder="52"
-                  value={findBaseInput2 ?? ''}
-                  onChange={(e) => setFindBaseInput2(e.target.value ? parseFloat(e.target.value) : null)}
+                  value={baseInput2 ?? ''}
+                  onChange={(e) => setBaseInput2(e.target.value ? parseFloat(e.target.value) : null)}
                 />
                 <span>%</span>
               </div>
               <span>of what</span>
               <button
-                onClick={calculateFindBase}
-                disabled={!areInputsValid(findBaseInput1, findBaseInput2)}
+                onClick={calculateBase}
+                disabled={!areInputsValid(baseInput1, baseInput2)}
               >
-                Calculate
+                Calc
               </button>
             </div>
             <div className="result">
-              {findBaseResult !== null && (
-                <>
-                  <div>Result: {findBaseResult.toFixed(2)}</div>
-                  <div>
-                    {findBaseValues.x ?? 0} is {findBaseValues.y ?? 0}% of {findBaseResult.toFixed(2)}.
-                  </div>
-                </>
+              <div>Result: {(baseResult ?? 0).toFixed(2)}</div>
+              {baseResult !== null && (
+                <div>
+                  {baseInput1 ?? 0} is {baseInput2 ?? 0}% of {(baseResult ?? 0).toFixed(2)}.
+                </div>
+              )}
+              {baseResult !== null && (
+                <button className="clear-button" onClick={clearInputs}>
+                  Clear
+                </button>
               )}
             </div>
           </div>
