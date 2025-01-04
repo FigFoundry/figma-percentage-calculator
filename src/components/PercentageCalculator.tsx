@@ -78,7 +78,7 @@ const PercentageCalculator = () => {
               <div className="input-with-suffix">
                 <input
                   type="number"
-                  placeholder=""
+                  placeholder="32"
                   value={findPercentageInput1 ?? ''}
                   onChange={(e) => setFindPercentageInput1(e.target.value ? parseFloat(e.target.value) : null)}
                 />
@@ -87,11 +87,11 @@ const PercentageCalculator = () => {
               <span>of</span>
               <input
                 type="number"
-                placeholder=""
+                placeholder="52"
                 value={findPercentageInput2 ?? ''}
                 onChange={(e) => setFindPercentageInput2(e.target.value ? parseFloat(e.target.value) : null)}
               />
-              <button onClick={calculateFindPercentage}>Calculate</button>
+              <button onClick={calculateFindPercentage}>Calc</button>
             </div>
             <div className="result">
               {findPercentageResult !== null && (
@@ -111,7 +111,7 @@ const PercentageCalculator = () => {
             <div className="input-group">
               <input
                 type="number"
-                placeholder=""
+                placeholder="32"
                 value={findRateInput1 ?? ''}
                 onChange={(e) => setFindRateInput1(e.target.value ? parseFloat(e.target.value) : null)}
               />
@@ -119,14 +119,14 @@ const PercentageCalculator = () => {
               <div className="input-with-suffix">
                 <input
                   type="number"
-                  placeholder=""
+                  placeholder="52"
                   value={findRateInput2 ?? ''}
                   onChange={(e) => setFindRateInput2(e.target.value ? parseFloat(e.target.value) : null)}
                 />
                 <span>%</span>
               </div>
               <span>of</span>
-              <button onClick={calculateFindRate}>Calculate</button>
+              <button onClick={calculateFindRate}>Calc</button>
             </div>
             <div className="result">
               {findRateResult !== null && (
@@ -146,7 +146,7 @@ const PercentageCalculator = () => {
             <div className="input-group">
               <input
                 type="number"
-                placeholder=""
+                placeholder="32"
                 value={findBaseInput1 ?? ''}
                 onChange={(e) => setFindBaseInput1(e.target.value ? parseFloat(e.target.value) : null)}
               />
@@ -154,14 +154,14 @@ const PercentageCalculator = () => {
               <div className="input-with-suffix">
                 <input
                   type="number"
-                  placeholder=""
+                  placeholder="52"
                   value={findBaseInput2 ?? ''}
                   onChange={(e) => setFindBaseInput2(e.target.value ? parseFloat(e.target.value) : null)}
                 />
                 <span>%</span>
               </div>
               <span>of what</span>
-              <button onClick={calculateFindBase}>Calculate</button>
+              <button onClick={calculateFindBase}>Calc</button>
             </div>
             <div className="result">
               {findBaseResult !== null && (
