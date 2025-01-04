@@ -15,19 +15,22 @@ const PercentageCalculator = () => {
 
   const calculateWhatIs = () => {
     if (whatIsValue1 !== null && whatIsValue2 !== null) {
-      setWhatIsResult((whatIsValue1 / 100) * whatIsValue2);
+      const result = (whatIsValue1 / 100) * whatIsValue2;
+      setWhatIsResult(result);
     }
   };
 
   const calculateIsWhat = () => {
     if (isWhatValue1 !== null && isWhatValue2 !== null) {
-      setIsWhatResult((isWhatValue1 / isWhatValue2) * 100);
+      const result = (isWhatValue1 / isWhatValue2) * 100;
+      setIsWhatResult(result);
     }
   };
 
   const calculateIsOfWhat = () => {
     if (isOfWhatValue1 !== null && isOfWhatValue2 !== null) {
-      setIsOfWhatResult((isOfWhatValue1 / isOfWhatValue2) * 100);
+      const result = (isOfWhatValue1 / isOfWhatValue2) * 100;
+      setIsOfWhatResult(result);
     }
   };
 
@@ -55,7 +58,14 @@ const PercentageCalculator = () => {
           />
         </div>
         <button onClick={calculateWhatIs}>Calculate</button>
-        {whatIsResult !== null && <div className="result">Result: {whatIsResult.toFixed(2)}</div>}
+        {whatIsResult !== null && (
+          <div className="result">
+            <div>Result: {whatIsResult.toFixed(2)}</div>
+            <div>
+              {whatIsResult.toFixed(2)} is {whatIsValue1}% of {whatIsValue2}.
+            </div>
+          </div>
+        )}
       </div>
 
       {/* Section 2: __ is what % of __ */}
@@ -76,7 +86,14 @@ const PercentageCalculator = () => {
           />
         </div>
         <button onClick={calculateIsWhat}>Calculate</button>
-        {isWhatResult !== null && <div className="result">Result: {isWhatResult.toFixed(2)}%</div>}
+        {isWhatResult !== null && (
+          <div className="result">
+            <div>Result: {isWhatResult.toFixed(2)}%</div>
+            <div>
+              {isWhatValue1} is {isWhatResult.toFixed(2)}% of {isWhatValue2}.
+            </div>
+          </div>
+        )}
       </div>
 
       {/* Section 3: __ is __% of what */}
@@ -101,7 +118,14 @@ const PercentageCalculator = () => {
           <span>of what</span>
         </div>
         <button onClick={calculateIsOfWhat}>Calculate</button>
-        {isOfWhatResult !== null && <div className="result">Result: {isOfWhatResult.toFixed(2)}</div>}
+        {isOfWhatResult !== null && (
+          <div className="result">
+            <div>Result: {isOfWhatResult.toFixed(2)}</div>
+            <div>
+              {isOfWhatValue1} is {isOfWhatValue2}% of {isOfWhatResult.toFixed(2)}.
+            </div>
+          </div>
+        )}
       </div>
     </div>
   );
