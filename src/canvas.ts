@@ -1,6 +1,6 @@
 import { PluginMessage } from './types/messages';
 
-figma.showUI(__html__, { themeColors: true, width: 300, height: 400 });
+figma.showUI(__html__, { themeColors: true, width: 400, height: 400 }); // Increased width
 
 figma.ui.onmessage = (msg: PluginMessage) => {
   if (msg.type === 'calculate-percentage') {
