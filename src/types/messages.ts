@@ -1,14 +1,7 @@
-export type ShapeType = 'RECTANGLE' | 'ELLIPSE';
-
-export interface GenerateShapesMessage {
-    type: 'generate-shapes';
-    numberOfShapes: number;
-    shapeType: 'RECTANGLE' | 'ELLIPSE';
-    color: {
-      r: number;
-      g: number;
-      b: number;
-    };
+export interface PluginMessage {
+  type: 'calculate-percentage';
+  calculationType: string;
+  value1: number | null;
+  value2: number | null;
+  result: number | null;
 }
-  
-export type PluginMessage = GenerateShapesMessage;

@@ -1,8 +1,8 @@
 // https://www.figma.com/plugin-docs/manifest/
 
 export default {
-  name: "Figma Plugin React",
-  id: "0000000000000000000",
+  name: "Percentage Calculator",
+  id: "1457235675961983844",
   api: "1.0.0",
   editorType: ["figma", "figjam"],
   main: "./canvas.js",
