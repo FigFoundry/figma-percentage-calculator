@@ -61,6 +61,7 @@ body {
     padding: 12px;
     height: 78vh;
     border-radius: 0.3125rem;
+    height: calc(100vh - 48px);
 
     .section {
       display: flex;

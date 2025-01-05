@@ -108,7 +108,7 @@ const PercentageCalculator = () => {
                 onClick={calculatePercentage}
                 disabled={!areInputsValid(percentageInput1, percentageInput2)}
               >
-                Calc
+                Calculate
               </button>
             </div>
             <div className="result">
@@ -184,7 +184,7 @@ const PercentageCalculator = () => {
                 onClick={calculateRate}
                 disabled={!areInputsValid(rateInput1, rateInput2)}
               >
-                Calc
+                Calculate
               </button>
             </div>
             <div className="result">
@@ -264,7 +264,7 @@ const PercentageCalculator = () => {
                 onClick={calculateBase}
                 disabled={!areInputsValid(baseInput1, baseInput2)}
               >
-                Calc
+                Calculate
               </button>
             </div>
             <div className="result">
