@@ -118,7 +118,6 @@ body {
           padding: 0 6px;
           -moz-appearance: textfield;
 
-
           &:hover {
             border: 1px solid var(--figma-color-border);
             border-color: var(--figma-color-border);
@@ -165,42 +164,48 @@ body {
 
       // Results
       .result {
-        font-weight: 550;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
         margin-top: 8px;
 
-        div {
-          margin-top: 4px;
-          font-size: 0.6875rem;
-          color: var(--figma-color-text);
+        .result-text {
+          flex: 1;
+          div {
+            margin-top: 4px;
+            font-size: 0.6875rem;
+            color: var(--figma-color-text);
+          }
+
+          .result-value {
+            font-weight: 600;
+            color: var(--figma-color-text-brand);
+            font-family: var(--mono-ui);
+          }
+
+          .result-secondary-text {
+            font-size: 0.625rem;
+            color: var(--figma-color-text-secondary);
+          }
         }
 
         .clear-button {
-          width: 4rem;
-          height: 1.5rem;
-          box-sizing: border-box;
-          background-clip: border-box;
-          background-color: transparent;
-          -webkit-user-select: none;
-          border-radius: .3125rem;
-          user-select: none;
-          -webkit-appearance: none;
-          -moz-appearance: none;
-          appearance: none;
-          border: 0;
+          background: none;
+          border: none;
+          cursor: pointer;
           padding: 0;
-          cursor: default;
           display: flex;
           align-items: center;
           justify-content: center;
-          flex-shrink: 0;
+          color: var(--figma-color-text-secondary);
 
           &:hover {
-            background: var(--figma-color-bg-hover);
+            color: var(--figma-color-text);
           }
-        
-          &:disabled {
-            opacity: 0.5;
-            cursor: not-allowed;
+
+          svg {
+            width: 16px;
+            height: 16px;
           }
         }
       }
