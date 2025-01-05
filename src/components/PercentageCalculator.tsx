@@ -3,27 +3,23 @@ import React, { useState } from 'react';
 const PercentageCalculator = () => {
   const [activeTab, setActiveTab] = useState<'A' | 'B' | 'C'>('A');
 
-  // State for "Percentage"
   const [percentageInput1, setPercentageInput1] = useState<number | null>(null);
   const [percentageInput2, setPercentageInput2] = useState<number | null>(null);
   const [percentageResult, setPercentageResult] = useState<number | null>(null);
 
-  // State for "Rate"
   const [rateInput1, setRateInput1] = useState<number | null>(null);
   const [rateInput2, setRateInput2] = useState<number | null>(null);
   const [rateResult, setRateResult] = useState<number | null>(null);
 
-  // State for "Base"
   const [baseInput1, setBaseInput1] = useState<number | null>(null);
   const [baseInput2, setBaseInput2] = useState<number | null>(null);
   const [baseResult, setBaseResult] = useState<number | null>(null);
 
-  // Helper function to check if inputs are valid
   const areInputsValid = (input1: number | null, input2: number | null): boolean => {
     return input1 !== null && input2 !== null;
   };
 
-  // Calculate Percentage
+  // Percentage
   const calculatePercentage = () => {
     if (percentageInput1 !== null && percentageInput2 !== null) {
       const result = (percentageInput1 / 100) * percentageInput2;
@@ -31,7 +27,7 @@ const PercentageCalculator = () => {
     }
   };
 
-  // Calculate Rate
+  // Rate
   const calculateRate = () => {
     if (rateInput1 !== null && rateInput2 !== null) {
       const result = (rateInput1 / rateInput2) * 100;
@@ -39,7 +35,7 @@ const PercentageCalculator = () => {
     }
   };
 
-  // Calculate Base
+  // Base
   const calculateBase = () => {
     if (baseInput1 !== null && baseInput2 !== null) {
       const result = (baseInput1 / baseInput2) * 100;
@@ -47,7 +43,7 @@ const PercentageCalculator = () => {
     }
   };
 
-  // Clear inputs and results
+  // Clear results
   const clearInputs = () => {
     setPercentageInput1(null);
     setPercentageInput2(null);
