@@ -1,7 +1,6 @@
 @use "./_variables" as *;
 @use "./_reset";
 
-// Base styles
 body {
   background-color: var(--figma-color-bg);
   color: var(--figma-color-text);
@@ -12,14 +11,12 @@ body {
   margin: 8px;
 }
 
-// Main container
 .percentage-calculator {
   display: flex;
   flex-direction: column;
   gap: 8px;
   width: 100%;
 
-  // Tabs
   .tabs {
     display: flex;
     flex-direction: row;
@@ -58,31 +55,28 @@ body {
     }
   }
 
-  // Tab content
   .tab-content {
     background-color: var(--figma-color-bg);
     border: 1px solid var(--figma-color-border);
-    padding: 16px;
+    padding: 12px;
     height: 78vh;
     border-radius: 0.3125rem;
 
-    // Section
     .section {
       display: flex;
       flex-direction: column;
       gap: 10px;
 
-      // Input group
       .input-group {
         display: flex;
         flex-direction: column;
         gap: 8px;
 
-        // Input with suffix
         .input-with-suffix {
           display: flex;
           align-items: center;
           border-radius: 0.3125rem;
+          gap: 4px;
 
           input {
             outline: none;
@@ -90,12 +84,18 @@ body {
             background: var(--figma-color-bg-secondary);
             color: var(--figma-color-text);
             border: 1px solid transparent;
+            font-family: var(--mono-ui);
+            padding: 0 6px;
           }
 
           span {
             padding: 0 8px;
             background-color: var(--figma-color-bg-secondary);
-            border-left: 1px solid var(--figma-color-border);
+            display: flex;
+            height: 1.5rem;
+            width: 1.5rem;
+            align-items: center;
+            border-radius: 0.3125rem;
           }
         }
 
@@ -114,6 +114,10 @@ body {
           outline: none;
           border-radius: 0.3125rem;
           border: 1px solid transparent;
+          font-family: var(--mono-ui);
+          padding: 0 6px;
+          -moz-appearance: textfield;
+
 
           &:hover {
             border: 1px solid var(--figma-color-border);
@@ -122,6 +126,17 @@ body {
 
           &:focus {
             border-color: var(--figma-color-bg-brand);
+          }
+
+          &::-webkit-inner-spin-button,
+          &::-webkit-outer-spin-button {
+            -webkit-appearance: none;
+            margin: 0;
+          }
+
+          &::-webkit-inner-spin-button {
+            opacity: 1;
+            height: 1.5rem;
           }
         }
 
@@ -148,7 +163,7 @@ body {
         }
       }
 
-      // Result section
+      // Results
       .result {
         font-weight: 550;
         margin-top: 8px;
@@ -159,20 +174,33 @@ body {
           color: var(--figma-color-text);
         }
 
-        // Clear button
         .clear-button {
-          margin-top: 8px;
-          padding: 8px 16px;
-          background-color: var(--figma-color-bg-danger);
-          color: var(--figma-color-text-onbrand);
-          border: none;
-          border-radius: 0.3125rem;
-          cursor: pointer;
-          font-size: 0.6875rem;
-          float: right;
+          width: 4rem;
+          height: 1.5rem;
+          box-sizing: border-box;
+          background-clip: border-box;
+          background-color: transparent;
+          -webkit-user-select: none;
+          border-radius: .3125rem;
+          user-select: none;
+          -webkit-appearance: none;
+          -moz-appearance: none;
+          appearance: none;
+          border: 0;
+          padding: 0;
+          cursor: default;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          flex-shrink: 0;
 
           &:hover {
-            background-color: var(--figma-color-bg-danger-hover);
+            background: var(--figma-color-bg-hover);
+          }
+        
+          &:disabled {
+            opacity: 0.5;
+            cursor: not-allowed;
           }
         }
       }
